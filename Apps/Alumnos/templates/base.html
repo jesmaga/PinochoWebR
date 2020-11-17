@@ -1,63 +1,300 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
     {% load static %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>{{ title }}</title>
 
-    <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
-
-    <script src="https://kit.fontawesome.com/087f668ea2.js" crossorigin="anonymous"></script>
     
+
+    
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'lib/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap" rel="stylesheet">
 
-
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{% static 'lib/adminlte-3.0.4/plugins/font-awesome-5.11.1/css/all.min.css' %}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{% static 'lib/adminlte-3.0.4/css/adminlte.min.css' %}">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- jQuery -->
-    <script src="{% static 'lib/adminlte-3.0.4/plugins/jquery/jquery.min.js' %}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{% static 'lib/adminlte-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <!-- AdminLTE App -->
-    <script src="{% static 'lib/adminlte-3.0.4/js/adminlte.min.js' %}"></script>
-    {% block head %}
+
+    
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+
+    {% block head %}   
     
     {% endblock %}
-
 </head>
-<body>
-    <div class="contenedor">
-        <div class="cabecera">
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'Home' %}">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">C.E.I. Pinocho <sup></sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'Home' %}">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Datos
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#alumnos"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Alumnos</span>
+                </a>
+                <div id="alumnos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestión alumnos</h6>
+                        <a class="collapse-item" href="{% url 'Alumnos' %}">Listado alumnos</a>
+                        <a class="collapse-item" href="{% url 'NuevoAlumno' %}">Nuevo alumno</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#padres"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Padres</span>
+                </a>
+                <div id="padres" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestión padres</h6>
+                        <a class="collapse-item" href="{% url 'Padres' %}">Listado padres</a>
+                        <a class="collapse-item" href="{% url 'NuevoPadre' %}">Nuevo padre</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Gestión económica
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adeudos"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Adeudos</span>
+                </a>
+                <div id="adeudos" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestión de adeudos</h6>
+                        <a class="collapse-item" href="{% url 'Adeudos' %}">Listado adeudos</a>
+                        <a class="collapse-item" href="{% url 'NuevoAdeudo' %}">Nuevo adeudo</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#contabilidad"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Contabilidad</span>
+                </a>
+                <div id="contabilidad" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestión de la contabilidad</h6>
+                        <a class="collapse-item" href="{% url 'Portada_contabilidad' %}">Gráfica</a>
+                        <a class="collapse-item" href="{% url 'Ingresos' %}">Listado Ingresos</a>
+                        <a class="collapse-item" href="{% url 'Gastos' %}">Listado Gastos</a>
+                        <a class="collapse-item" href="{% url 'NuevoIngreso' %}">Nuevo Ingreso</a>
+                        <a class="collapse-item" href="{% url 'NuevoGasto' %}">Nuevo Gasto</a>
+                        <h6 class="collapse-header">Recibos</h6>
+                        <a class="collapse-item" href="{% url 'Recibos' %}">Listado recibos</a>
+                        <a class="collapse-item" href="{% url 'NuevoRecibo' %}">Nuevo recibo</a>
+                    </div>
+                </div>
+            </li>
+
+            {% if perms.auth.change_permission %}
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admin"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Admin</span>
+                </a>
+                <div id="admin" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Administración de datos</h6>
+                        <a class="collapse-item" href="{% url 'NuevaCatIngresos' %}">Nueva cat ingresos</a>
+                        <a class="collapse-item" href="{% url 'NuevaCatGastos' %}">Nueva cat Gastos</a>
+                        <a class="collapse-item" href="{% url 'CategoriasIngresos' %}">Categorías Ingresos</a>
+                        <a class="collapse-item" href="{% url 'CategoriasGastos' %}">Categorías Gastos</a>
+                        <h6 class="collapse-header">Administración de Django</h6>
+                        <a class="collapse-item" href="/admin/">Admin</a>
+                    </div>
+                </div>
+            </li>
+            {% endif %}
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
             
-            {% include 'header.html' %}
 
-        </div>    
-        <div class="contenido">
-        {% block content %}
+            
+        </ul>
+        <!-- End of Sidebar -->
 
-        {% endblock %}
-        </div> 
-        <footer class="footer">
-            {% include 'footer.html' %}
-        </footer>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ request.user.get_username }}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="{% static 'img/undraw_profile.svg' %}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Salir
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+
+                <div class="container-fluid">
+
+                    {% block content%}
+
+                    {% endblock %}
+                
+                </div>
+                
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; 2020/21 All Rights Reserved by JMG</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Quieres salir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Seleccione "Salir" para cerrar la sesión actual</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Volver</button>
+                    <a class="btn btn-primary" href="{% url 'Logout' %}">Salir</a>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'lib/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'lib/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        
+        
+<!-- Core plugin JavaScript-->
+<script src="{% static 'lib/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<script src="{% static 'lib/adminlte-3.0.4/plugins/jquery/jquery.min.js' %}"></script>
+    
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'lib/js/sb-admin-2.min.js' %}"></script>
+
 {% block javascript %}
+
 
 
 {% endblock %}
 
 </body>
-
 
 </html>

@@ -1,19 +1,24 @@
 {% load static %}
 
 {% block head %}
+
+<link rel="stylesheet" href="{% static 'lib/bootstrap-datepicker-1/css/bootstrap-datepicker3.min.css' %}">
+<link rel="stylesheet" href="{% static 'lib/bootstrap-datepicker-1/css/bootstrap-datepicker3.css' %}">
+
+<script src="{% static 'lib/vendor/jquery/jquery.min.js' %}"></script>
+
 <script src="{% static 'lib/bootstrap-datepicker-1/js/bootstrap-datepicker.js' %}"></script>
 <script src="{% static 'lib/bootstrap-datepicker-1/js/bootstrap-datepicker.min.js' %}"></script>
 <script src="{% static 'lib/bootstrap-datepicker-1/locales/bootstrap-datepicker.es.min.js' %}"></script>
 
-<link rel="stylesheet" href="{% static 'lib/bootstrap-datepicker-1/css/bootstrap-datepicker3.min.css' %}">
-<link rel="stylesheet" href="{% static 'lib/bootstrap-datepicker-1/css/bootstrap-datepicker3.css' %}">
+
 {% endblock %}
 
 
 {% block content %}
 
     
-      <div class="card card-warning" style="width: 80%;">
+      <div class="card card-warning">
         <div class="card-header">
           <h3 class="card-title">{{ title }}</h3>
         </div>
@@ -41,7 +46,10 @@
 
 {% endblock %}
 
+
+
 {% block javascript %}
+
 
 <script>
 
@@ -56,6 +64,5 @@ $('#id_fecha').datepicker({
 });
 
 </script>
-
 
 {% endblock %}

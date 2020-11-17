@@ -36,7 +36,7 @@ class IngresoForm(forms.ModelForm):
                 'categoria': forms.Select(attrs={
                     'class': 'form-control', }),
                 'fecha': forms.DateInput(attrs={
-                    'class': 'datepicker', }),
+                    'class': 'form-control datepicker', }),
                 'cantidad': forms.NumberInput(attrs={
                     'class': 'form-control', }),            
             }    
