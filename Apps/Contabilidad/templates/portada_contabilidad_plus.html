@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+
+<script src="{% static 'lib/highcharts/highcharts.js' %}"></script>
+<script src="{% static 'lib/highcharts/modules/exporting.js' %}"></script>
+<script src="{% static 'lib/highcharts/modules/export-data.js' %}"></script>
+<script src="{% static 'lib/highcharts/modules/accessibility.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}   
+<!--
+<figure class="highcharts-figure">
+    <div id="anual" style="height: 180px;"></div>
+    <p class="highcharts-description">
+    </p>
+</figure>
+
+-->
+
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-expand">
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a class="nav-link" href="{% url 'Portada_contabilidad_plus2' %}"><i style="font-size: 150%;" class="fas fa-arrow-circle-left"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a class="nav-link" href="{% url 'Portada_contabilidad' %}"><i style="font-size: 150%;" class="fas fa-arrow-circle-right"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    
+
+  
+
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-lg-12">
+            <div id="container" style="height: 120%;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'INGRESO/GASTOS CURSO {{ano}}' 
+    },
+    subtitle: {
+        text: 'Relación ingresos y gastos mensuales'
+    },
+    xAxis: {
+        categories: [
+            'Septiembre',
+            'Octubre',
+            'Noviembre',
+            'Diciembre',
+            'Enero',
+            'Febrero',
+            'Marzo',
+            'Abril',
+            'Mayo',
+            'Junio',
+            'Julio',
+            'Agosto',
+            'Total'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Euros (€)'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} €</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+    
+        name: 'INGRESOS',
+        data: {{ grafico_ingresos|safe }}
+
+    },
+    {
+    
+        name: 'GASTOS',
+        data: {{ grafico_gastos|safe }}
+
+    }
+    ]
+});
+
+</script>
+
+{% endblock %}
+
+

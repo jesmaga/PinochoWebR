@@ -1,0 +1,36 @@
+{% extends 'list.html' %}
+
+{% block columns %}
+    <tr>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Clase</th>
+        <th scope="col">Padre/Madre</th>
+        <th scope="col">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for c in object_list %}
+        <tr>
+            <td>   
+            {% if c.imagen %}    
+                <img src="{{c.imagen.url}}" height="80rem" width="70rem" style="border-radius: 5px;"/>
+            {% endif %}    
+            </td>
+            <td>{{ c.Nombre }}</td>
+            <td>{{ c.Apellidos }}</td>
+            <td>{{ c.Clase }}</td>
+            <td>{{ c.Padre }}</td>
+            <td class="">
+                <a title="Editar Registro" href="{% url 'AlumnoEdit' c.Id %}" class="btn btn-info btn-xs btn-flat">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a title="Eliminar Registro" href="{% url 'AlumnoDelete' c.Id %}" class="btn btn-danger btn-xs btn-flat">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

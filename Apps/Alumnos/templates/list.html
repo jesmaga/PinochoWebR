@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+
+
+<!-- Datatables -->
+<link rel="stylesheet" type="text/css" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+
+<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+
+<!-- Buttons -->
+<link rel="stylesheet" type="text/css" href="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/css/buttons.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/jszip-2.5.0/jszip.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/pdfmake-0.1.36/pdfmake.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/pdfmake-0.1.36/vfs_fonts.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.bootstrap4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.html5.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.print.min.js' %}"></script>
+
+
+{% endblock %}    
+
+
+{% block content %}
+                
+                <div class="card card-default" style="width: 95%;">
+
+                    <!--Cabecera de la tabla-->
+
+                    <div class="card-header">
+                        <h6 class="m-0 text-primary">
+                            <i class="fas fa-search"></i>
+                            {{ title }}
+                        </h6>
+                    </div>
+
+                    
+                    <!-- tabla -->
+
+                    <div class="card-body">
+                            <table class="table" id="data">
+                                <thead>
+                                {% block columns %}
+                
+                                {% endblock %}
+                                </thead>
+                                <tbody>
+                                {% block rows %}
+                
+                                {% endblock %}
+                                </tbody>
+                                <tfoot>
+                                {% block tfoot %}
+                
+                                {% endblock %}    
+
+                                </tfoot>
+                            </table>
+                    </div>    
+                    
+                    <!-- Pie de tabla -->
+                    
+                    <div class="card-footer">
+                        <a href="{{ submit }}" class="btn btn-primary btn-flat btnTest">
+                            <i class="fas fa-plus"></i> Nuevo registro
+                        </a>
+                    </div>
+                </div>
+
+        
+{% endblock %}   
+
+
+
+{% block javascript %}
+
+<script type="application/javascript">
+    $(document).ready(function (){
+        $('#data').DataTable({
+            responsive: true,
+            pageLength: 5,
+            lengthMenu: [ 5, 10, 25, 50, 100],
+            autoWidth: false,
+            dom: "<'row'<'col-sm-12 col-md-3'B><'col-sm-12 col-md-3'l><'col-sm-12 col-md-6'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+            buttons:[
+                {
+                    extend: 'excelHtml5',
+                    text:   '<i class="far fa-file-excel"></i>',
+                    titleAttr: 'Exportar a Excel',
+                    className: 'btn btn-success',
+                    exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4 ]
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text:   '<i class="fa fa-file-pdf-o"> </i>',
+                    titleAttr: 'Exportar a PDF',
+                    className: 'btn btn-danger',
+                    exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4 ]
+                    }
+                },
+                {
+                    extend: 'print',
+                    text:   '<i class="fas fa-print"></i>',
+                    titleAttr: 'Imprimir',
+                    className: 'btn btn-info',
+                    exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4 ]
+                    }
+                },
+                ],
+                "footerCallback": function( row, data, start, end, display ) {
+                    api = this.api(), data;
+                    var intVal = function ( i ) {
+                        return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, ',')*1 :
+                        typeof i === 'number' ?
+                        i : 0;
+                    };
+                    Total = api
+                        .column(4)
+                        .data()
+                        .reduce( function (a, b) {
+                            return parseFloat(intVal(a)) + parseFloat(intVal(b));
+                        }, 0 ); 
+                    pageTotal = api
+                        .column( 4, { page: 'current'} )
+                        .data()
+                        .reduce( function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0 );    
+
+                $( api.column( 2 ).footer() ).html('Total:');        
+                $( api.column( 3 ).footer() ).html(pageTotal.toFixed(2)+' €');
+                $( api.column( 4 ).footer() ).html('de');        
+                $( api.column( 5 ).footer() ).html(Total.toFixed(2)+' €');
+                },
+    });
+});
+    
+</script> 
+ 
+
+
+{% endblock %}
+
+
+
+
+
+    

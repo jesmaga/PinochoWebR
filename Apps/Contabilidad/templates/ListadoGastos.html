@@ -1,0 +1,42 @@
+{% extends 'list.html' %}
+
+{% block columns %}
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Concepto</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Fecha</th>
+        <th style="text-align: center;" scope="col">Importe</th>
+        <th style="text-align: center;" scope="col">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for c in object_list %}
+        <tr>
+            <td>{{ c.Id }}</td> 
+            <td>{{ c.concepto }}</td> 
+            <td>{{ c.categoria }}</td>
+            <td>{{ c.fecha }}</td>
+            <td style="text-align: center;" >{{ c.cantidad }}</td>
+            <td style="text-align: center;" >
+                <a title="Editar Registro" href="{% url 'GastoEdit' c.Id %}" class="btn btn-info btn-xs btn-flat">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a title="Eliminar Registro" href="{% url 'GastoDelete' c.Id %}" class="btn btn-danger btn-xs btn-flat">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+{% block tfoot %}
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th style="text-align: right;" scope="col"></th>
+            <th style="text-align: center;" scope="col"></th>
+            <th scope="col"></th>
+        </tr> 
+{% endblock %}

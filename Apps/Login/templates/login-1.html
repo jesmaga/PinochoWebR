@@ -1,0 +1,71 @@
+{% extends 'base_login.html' %}
+
+{% load static %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block login %}
+
+
+
+        <div class="login-box" style="width: 50%; margin: auto;">
+            <div class="login-logo">
+                <a href="{% url 'Home' %}"><b></b></a>
+            </div>
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Inicie sesión con sus credenciales</p>
+                    <form action="." method="post">
+                        <input type="hidden" name="next" value="{{ next }}">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            {% if form.error_messages %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times</span>
+                                    </button>
+                                    {{ form.get_invalid_login_error }}
+                                </div>
+                            {% endif %}        
+
+                            {{ form.username }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            {{ form.password }}
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                                </button>
+                            </div>
+                        </div>
+                        <!--
+                        <p class="text-center mt-2" style="font-size: 13px;">
+                            Si no recuerdas tu contraseña puedes resetearla dando click <a href="#">aqui </a>
+                        </p>
+                        -->
+
+                    </form>
+                </div>
+             </div>
+        </div>  
+    
+ 
+    
+{% endblock %}
+

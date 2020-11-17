@@ -1,0 +1,94 @@
+{% load static %}
+  
+<!--
+<header class="titulo1">
+    <a href="https://www.ceipinocho.es/" target="_blank"><img class="imagen-responsive" style="width: 6em; height: 8em; border-radius: 6px;" src="{% static 'img/logotipo pinocho 2.jpg' %}" alt=""></a>    
+</header>
+-->  
+
+  
+  <div class="titulo">
+    <!--
+    <div class="titulo1">
+      <h1 style="padding-right: 10.5em; color: rgb(182, 180, 40); font-family: Architects Daughter; font-size: 2em;">Centro de &nbsp;</h1>
+    </div>
+    <div class="titulo1">
+      <h1 style="color: rgb(46, 164, 210); font-family: Architects Daughter; font-size: 2em;">Educación &nbsp;</h1>
+    </div>
+    <div class="titulo1">
+      <h1 style="padding-left: 8em; color: rgb(206, 69, 142); font-family: Architects Daughter; font-size: 2em;">Infantil </h1>
+    </div>
+    -->
+    <div class="titulo4">
+      <h1 style="padding: 0 0.2em; color: rgb(174, 198, 41); font-size: 4rem; font-family: Architects Daughter;" >C.</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(37, 153, 201); font-size: 4rem; font-family: Architects Daughter;" >E.</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(207, 30, 120); font-size: 4rem; font-family: Architects Daughter;" >I.</h1>
+      <h1 style="padding: 0 0.2em 0 0.8em; color: rgb(174, 198, 41); font-size: 4rem; font-family: Architects Daughter;" >P</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(207, 30, 120); font-size: 4rem; font-family: Architects Daughter;">I</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(37, 153, 201); font-size: 4rem; font-family: Architects Daughter;">N</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(174, 198, 41); font-size: 4rem; font-family: Architects Daughter;">O</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(207, 30, 120); font-size: 4rem; font-family: Architects Daughter;">C</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(37, 153, 201); font-size: 4rem; font-family: Architects Daughter;">H</h1>
+      <h1 style="padding: 0 0.2em; color: rgb(174, 198, 41); font-size: 4rem; font-family: Architects Daughter;">O</h1>
+    </div>
+
+</div>
+<div class="header">     
+  <nav class="navbar navbar-expand navbar-blank navbar-light" style="font-family: 'Source Sans Pro', sans-serif; font-style: italic;">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{% url 'Home' %}" class="nav-link"><i class="fas fa-home"></i></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{% url 'Alumnos' %}" class="nav-link">Alumnos</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{% url 'Padres' %}" class="nav-link">Padres</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="{% url 'Adeudos' %}" class="nav-link">Adeudos</a>
+          </li>
+          <li class="nav-item dropdown show">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="nav-link dropdown-toggle">Gestión</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+              <li><a href="{% url 'NuevoAlumno' %}" class="dropdown-item">Nuevo Alumno </a></li>
+              <li><a href="{% url 'NuevoPadre' %}" class="dropdown-item">Nuevo Padre</a></li>
+              <li><a href="{% url 'NuevoAdeudo' %}" class="dropdown-item">Nuevo Adeudo</a></li>
+              <li><a href="{% url 'NuevoIngreso' %}" class="dropdown-item">Nuevo Ingreso</a></li>
+              <li><a href="{% url 'NuevoGasto' %}" class="dropdown-item">Nuevo Gasto</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown show">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="nav-link dropdown-toggle">Contabilidad</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+              <li><a href="{% url 'Portada_contabilidad' %}" class="dropdown-item">Gráfica</a></li>
+              <li><a href="{% url 'Ingresos' %}" class="dropdown-item">Listado de Ingresos</a></li>
+              <li><a href="{% url 'Gastos' %}" class="dropdown-item">Listado de Gastos</a></li>
+              {% if perms.adeudos.view_CatGastos %}
+              <li><a href="{% url 'CategoriasGastos' %}" class="dropdown-item">Categorías de Gastos</a></li>
+              <li><a href="{% url 'CategoriasIngresos' %}" class="dropdown-item">Categorías de Ingresos</a></li>
+              <li><a href="{% url 'NuevaCatIngresos' %}" class="dropdown-item">Nueva Categoría Ingresos</a></li>
+              <li><a href="{% url 'NuevaCatGastos' %}" class="dropdown-item">Nueva Categoría Gastos</a></li>
+              {% endif %}
+              <li><a href="{% url 'NuevoRecibo' %}" class="dropdown-item">Nuevo Recibo</a></li>
+              <li><a href="{% url 'Recibos' %}" class="dropdown-item">Listado Recibos</a></li>
+            </ul>
+          </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      
+      <ul class="navbar-nav ml-auto">
+        {% if perms.auth.change_permission %}
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="/admin/" class="nav-link">Admin</a>
+        </li>
+        {% endif %}
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="{% url 'Logout' %}" class="nav-link"><strong>{{ request.user.get_username }}</strong>  &nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul> 
+      
+  </nav>   
+</div>  
