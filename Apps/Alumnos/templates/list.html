@@ -38,7 +38,7 @@
                     <!-- tabla -->
 
                     <div class="card-body">
-                            <table class="table" id="data">
+                            <table class="table table-striped" id="data">
                                 <thead>
                                 {% block columns %}
                 
@@ -61,7 +61,7 @@
                     <!-- Pie de tabla -->
                     
                     <div class="card-footer">
-                        <a href="{{ submit }}" class="btn btn-primary btn-flat btnTest">
+                        <a href="{{ submit }}" class="btn btn-primary btn-flat btnTest" style="background-color: #2bbabe;">
                             <i class="fas fa-plus"></i> Nuevo registro
                         </a>
                     </div>
@@ -98,9 +98,9 @@
             pageLength: 5,
             lengthMenu: [ 5, 10, 25, 50, 100],
             autoWidth: false,
-            dom: "<'row'<'col-sm-12 col-md-3'B><'col-sm-12 col-md-3'l><'col-sm-12 col-md-6'f>>" +
-                "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+            dom: "<'row'<'col'B><'col'l><'col'f>>" +
+                "<'row'<'col-sm-auto col-sm-12'tr>>" +
+                "<'row'<'col'i><'col'p>>",
             buttons:[
                 {
                     extend: 'excelHtml5',
@@ -113,7 +113,7 @@
                 },
                 {
                     extend: 'pdfHtml5',
-                    text:   '<i class="fa fa-file-pdf-o"> </i>',
+                    text:   '<i class="far fa-file-pdf"></i>',
                     titleAttr: 'Exportar a PDF',
                     className: 'btn btn-danger',
                     exportOptions: {

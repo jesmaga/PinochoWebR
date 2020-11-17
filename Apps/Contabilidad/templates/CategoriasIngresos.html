@@ -14,10 +14,10 @@
             <td>{{ c.Id }}</td> 
             <td>{{ c.categoria }}</td> 
             <td style="text-align: center;">
-                <a title="Editar Registro" href="{% url 'CatIngresoEdit' c.Id %}" class="btn btn-info btn-xs btn-flat">
+                <a title="Editar Registro" href="{% url 'CatIngresoEdit' c.Id %}" class="btn btn-info btn-sm btn-flat">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a title="Eliminar Registro" href="{% url 'CatIngresoDelete' c.Id %}" data-toogle="modal" data-target="#myModal" class="btn btn-danger btn-xs btn-flat">
+                <a title="Eliminar Registro" href="{% url 'CatIngresoDelete' c.Id %}" class="btn btn-danger btn-sm btn-flat">
                     <i class="fas fa-trash-alt"></i>
                 </a>
             </td>

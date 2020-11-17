@@ -20,10 +20,10 @@
             <td>{{ c.Mes }}</td>
             <td style="text-align: center;">{{ c.Importe }}</td>
             <td style="text-align: right;">
-                <a title="Editar Registro" href="{% url 'AdeudoEdit' c.id %}" class="btn btn-info btn-xs btn-flat">
+                <a title="Editar Registro" href="{% url 'AdeudoEdit' c.id %}" class="btn btn-info btn-sm btn-flat">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a title="Eliminar Registro" href="{% url 'AdeudoDelete' c.id %}" class="btn btn-danger btn-xs btn-flat">
+                <a title="Eliminar Registro" href="{% url 'AdeudoDelete' c.id %}" class="btn btn-danger btn-sm btn-flat">
                     <i class="fas fa-trash-alt"></i>
                 </a>
             </td>

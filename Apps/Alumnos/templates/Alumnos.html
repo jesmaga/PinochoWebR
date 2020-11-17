@@ -24,10 +24,10 @@
             <td>{{ c.Clase }}</td>
             <td>{{ c.Padre }}</td>
             <td class="">
-                <a title="Editar Registro" href="{% url 'AlumnoEdit' c.Id %}" class="btn btn-info btn-xs btn-flat">
+                <a title="Editar Registro" href="{% url 'AlumnoEdit' c.Id %}" class="btn btn-info btn-sm btn-flat">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a title="Eliminar Registro" href="{% url 'AlumnoDelete' c.Id %}" class="btn btn-danger btn-xs btn-flat">
+                <a title="Eliminar Registro" href="{% url 'AlumnoDelete' c.Id %}" class="btn btn-danger btn-sm btn-flat">
                     <i class="fas fa-trash-alt"></i>
                 </a>
             </td>

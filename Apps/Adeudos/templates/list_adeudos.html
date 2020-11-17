@@ -8,21 +8,12 @@
 <!-- Datatables -->
 <link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
 <link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
-<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
-<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
-<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
-<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+
 <!-- Buttons -->
 <link rel="stylesheet" type="text/css" href="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/css/buttons.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
 
 
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/jszip-2.5.0/jszip.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/pdfmake-0.1.36/pdfmake.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/pdfmake-0.1.36/vfs_fonts.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.bootstrap4.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.html5.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.print.min.js' %}"></script>
 
 {% endblock %}    
 
@@ -69,7 +60,7 @@
                     <!-- Pie de tabla -->
                     
                     <div class="card-footer">
-                        <a href="{{ submit }}" class="btn btn-primary btn-flat btnTest">
+                        <a href="{{ submit }}" class="btn btn-primary btn-flat btnTest" style="background-color: #2bbabe;">
                             <i class="fas fa-plus"></i> Nuevo registro
                         </a>
                     </div>
@@ -79,6 +70,20 @@
 {% endblock %}   
 
 {% block javascript %}
+
+<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/jszip-2.5.0/jszip.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/pdfmake-0.1.36/pdfmake.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/pdfmake-0.1.36/vfs_fonts.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.bootstrap4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.html5.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/datatables-1.10.20/plugins/buttons-1.6.1/js/buttons.print.min.js' %}"></script>
+
 
 <script type="application/javascript">
     $(document).ready(function (){

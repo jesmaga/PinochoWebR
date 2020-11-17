@@ -20,10 +20,10 @@
             <td>{{ c.fecha }}</td>
             <td style="text-align: center;" >{{ c.cantidad }}</td>
             <td style="text-align: center;" >
-                <a title="Editar Registro" href="{% url 'GastoEdit' c.Id %}" class="btn btn-info btn-xs btn-flat">
+                <a title="Editar Registro" href="{% url 'GastoEdit' c.Id %}" class="btn btn-info btn-sm btn-flat">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a title="Eliminar Registro" href="{% url 'GastoDelete' c.Id %}" class="btn btn-danger btn-xs btn-flat">
+                <a title="Eliminar Registro" href="{% url 'GastoDelete' c.Id %}" class="btn btn-danger btn-sm btn-flat">
                     <i class="fas fa-trash-alt"></i>
                 </a>
             </td>
