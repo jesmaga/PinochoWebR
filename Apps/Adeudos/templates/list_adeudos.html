@@ -60,7 +60,7 @@
                     <!-- Pie de tabla -->
                     
                     <div class="card-footer">
-                        <a href="{{ submit }}" class="btn btn-primary btn-flat btnTest" style="background-color: #2bbabe;">
+                        <a href="{{ submit }}" class="btn btn-primary btn-flat btn-sm btnTest" style="background-color: #2bbabe;">
                             <i class="fas fa-plus"></i> Nuevo registro
                         </a>
                     </div>
@@ -98,7 +98,7 @@
                     extend: 'excelHtml5',
                     text:   '<i class="far fa-file-excel"></i>',
                     titleAttr: 'Exportar a Excel',
-                    className: 'btn btn-success',
+                    className: 'btn btn-success btn-sm',
                     exportOptions: {
                     columns: [ 0, 1, 2, 3, 4 ]
                     }
@@ -107,7 +107,7 @@
                     extend: 'pdfHtml5',
                     text:   '<i class="fa fa-file-pdf-o"> </i>',
                     titleAttr: 'Exportar a PDF',
-                    className: 'btn btn-danger',
+                    className: 'btn btn-danger btn-sm',
                     exportOptions: {
                     columns: [ 0, 1, 2, 3, 4 ]
                     }
@@ -116,7 +116,7 @@
                     extend: 'print',
                     text:   '<i class="fas fa-print"></i>',
                     titleAttr: 'Imprimir',
-                    className: 'btn btn-info',
+                    className: 'btn btn-info btn-sm',
                     exportOptions: {
                     columns: [ 0, 1, 2, 3, 4 ]
                     }
