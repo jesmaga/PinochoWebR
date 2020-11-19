@@ -23,7 +23,7 @@
 
 {% block content %}
                 
-                <div class="card card-default" >
+                <div class="card card-default" style="font-size: 0.9rem;">
 
                     <!--Cabecera de la tabla-->
 
@@ -91,6 +91,7 @@
 <script type="application/javascript">
     $(document).ready(function (){
         $('#data').DataTable({
+            "order": [[ 2, "asc" ]],
             responsive: true,
             rowReorder: {
                 update: true
