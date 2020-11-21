@@ -1,5 +1,5 @@
 from django.db import models
-from Apps.Alumnos.models import Padre
+from Apps.Alumnos.models import Padre, Alumno
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
@@ -39,7 +39,7 @@ class Adeudo(models.Model):
     Importe = models.DecimalField(default=0, max_digits = 5, decimal_places = 2)
     Concepto = models.ForeignKey(Concepto, on_delete=models.CASCADE)
     Mes = models.ForeignKey(Mes, on_delete=models.CASCADE)
-    Padre = models.ForeignKey(Padre, null=True, blank=True, on_delete=models.CASCADE)
+    Alumno = models.ForeignKey(Alumno, null=True, blank=True, on_delete=models.CASCADE)
 
     class Meta:
 
@@ -48,4 +48,4 @@ class Adeudo(models.Model):
 
     def __str__(self):
 
-        return '%s' % self.Importe
+        return '%s %s' % (self.Alumno, self.Importe)

@@ -88,9 +88,10 @@ class Gasto(models.Model):
 class Recibo(models.Model):
 
     Id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=30, blank=True, null=True)
-    apellidos = models.CharField(max_length=50, blank=True, null=True)
-    dni = models.CharField(max_length=9, blank=True, null=True)
+#    nombre = models.CharField(max_length=30, blank=True, null=True)
+#    apellidos = models.CharField(max_length=50, blank=True, null=True)
+#    dni = models.CharField(max_length=9, blank=True, null=True)
+    padre = models.ForeignKey(Padre, null=True, blank=True, on_delete=models.CASCADE)
     concepto = models.CharField(max_length=30)
     fecha = models.DateField()
     cantidad = models.FloatField(default=0.00)

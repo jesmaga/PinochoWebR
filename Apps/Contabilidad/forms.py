@@ -100,21 +100,15 @@ class ReciboForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['nombre'].widget.attrs['autofocus'] = True
+        self.fields['padre'].widget.attrs['autofocus'] = True
 
     class Meta:
         model = Recibo
         fields = '__all__'
 
         widgets = {
-                'nombre': forms.TextInput(attrs={
-                    'placeholder': 'Nombre del Padre/Madre...',
+                'padre': forms.Select(attrs={
                     'class': 'form-control', }),
-                'apellidos': forms.TextInput(attrs={
-                    'placeholder': 'Apellidos del Padre/Madre...',
-                    'class': 'form-control', }),    
-                'dni': forms.TextInput(attrs={
-                    'class': 'form-control', }), 
                 'concepto': forms.TextInput(attrs={
                     'placeholder': 'Concepto de recibo...',
                     'class': 'form-control', }),       

@@ -5,22 +5,22 @@ class AdeudoForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['Importe'].widget.attrs['autofocus'] = True
+        self.fields['Alumno'].widget.attrs['autofocus'] = True
 
     class Meta:
         model = Adeudo
-        fields = '__all__'
+        fields = {'Alumno', 'Mes', 'Concepto', 'Importe',}
 
         widgets = {
-                'Importe': forms.NumberInput(attrs={
-                    'placeholder': 'Cantidad de cobro...',
-                    'class': 'form-control', }),
-                'Concepto': forms.Select(attrs={
+                'Alumno': forms.Select(attrs={
                     'class': 'form-control', }),
                 'Mes': forms.Select(attrs={
+                    'class': 'form-control', }),     
+                'Concepto': forms.Select(attrs={
                     'class': 'form-control', }),
-                'Padre': forms.Select(attrs={
-                    'class': 'form-control', }),            
+                'Importe': forms.NumberInput(attrs={
+                    'placeholder': 'Cantidad de cobro...',
+                    'class': 'form-control', }),    
             }    
 
 class ConceptoForm(forms.ModelForm):

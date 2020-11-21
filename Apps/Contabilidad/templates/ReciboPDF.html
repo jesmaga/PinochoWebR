@@ -44,8 +44,8 @@
 <p>
     <b>Recibo nº:</b> {{ Recibo.Id }}/{{ Recibo.fecha.year }}<br>
     <b>Fecha:</b> {{ Recibo.fecha }}<br>
-    <b>Cliente:</b> {{ Recibo.nombre }} {{ Recibo.apellidos }}<br>
-    <b>DNI:</b> {{ Recibo.dni }}<br>
+    <b>Cliente:</b> {{ Recibo.padre }}<br>
+    <b>DNI:</b> {{ Recibo.padre.dni }}<br>
 </p>
 <table id="invoice">
     <thead>

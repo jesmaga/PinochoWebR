@@ -1,10 +1,11 @@
-{% extends "list.html" %}
+{% extends "list_adeudos.html" %}
 
 {% block columns %}
     <tr>
         <th scope="col">Concepto</th>
         <th scope="col">Mes</th>
-        <th scope="col">Nombre del tutor</th>
+        <th scope="col">Nombre del Alumno</th>
+        <th scope="col">Nombre del Tutor</th>
         <th scope="col">Número de cuenta</th>
         <th style="text-align: center;" scope="col">Importe</th>
         <th style="text-align: center;" scope="col">Opciones</th>
@@ -16,8 +17,9 @@
         <tr>
             <td>{{ c.Concepto }}</td>
             <td>{{ c.Mes }}</td>
-            <td>{{ c.Padre }}</td> 
-            <td>{{ c.Padre.NumeroCuenta }}</td> 
+            <td>{{ c.Alumno }}</td> 
+            <td>{{ c.Alumno.Padre }}</td> 
+            <td>{{ c.Alumno.Padre.NumeroCuenta }}</td> 
             <td style="text-align: center;">{{ c.Importe }}</td>
             <td style="text-align: right;">
                 <a title="Editar Registro" href="{% url 'AdeudoEdit' c.id %}" class="btn btn-info btn-sm btn-flat">
@@ -32,6 +34,7 @@
 {% endblock %}
 {% block tfoot %}
         <tr>
+            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>

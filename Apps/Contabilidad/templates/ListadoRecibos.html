@@ -17,9 +17,9 @@
     {% for c in object_list %}
         <tr>
             <td>{{ c.Id }}</td> 
-            <td>{{ c.nombre }}</td> 
-            <td>{{ c.apellidos }}</td>
-            <td>{{ c.dni }}</td>
+            <td>{{ c.padre.Nombre }}</td> 
+            <td>{{ c.padre.Apellidos }}</td>
+            <td>{{ c.padre.dni }}</td>
             <td>{{ c.concepto }}</td>
             <td>{{ c.fecha }}</td>
             <td style="text-align: center;">{{ c.cantidad }}</td>
