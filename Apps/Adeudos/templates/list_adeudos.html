@@ -87,7 +87,7 @@
 <script type="application/javascript">
     $(document).ready(function (){
         $('#data').DataTable({
-            "order": [[ 2, "asc" ]],
+            "order": [[ 0, "asc" ]],
             responsive: true,
             autoWidth: false,
             dom: "<'row'<'col-sm-12 col-md-3'B><'col-sm-12 col-md-3'l><'col-sm-12 col-md-6'f>>" +
@@ -100,7 +100,7 @@
                     titleAttr: 'Exportar a Excel',
                     className: 'btn btn-success btn-sm',
                     exportOptions: {
-                    columns: [ 0, 1, 2, 3, 4 ]
+                    columns: [ 0, 1, 2, 3, 4, 5, 6 ]
                     }
                 },
                 {
@@ -109,7 +109,7 @@
                     titleAttr: 'Exportar a PDF',
                     className: 'btn btn-danger btn-sm',
                     exportOptions: {
-                    columns: [ 0, 1, 2, 3, 4 ]
+                    columns: [ 0, 1, 2, 3, 4, 5, 6 ]
                     }
                 },
                 {
@@ -118,7 +118,7 @@
                     titleAttr: 'Imprimir',
                     className: 'btn btn-info btn-sm',
                     exportOptions: {
-                    columns: [ 0, 1, 2, 3, 4 ]
+                    columns: [ 0, 1, 2, 3, 4, 5, 6 ]
                     }
                 },
                 ],

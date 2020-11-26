@@ -2,10 +2,10 @@
 
 {% block columns %}
     <tr>
-        <th scope="col">Concepto</th>
-        <th scope="col">Mes</th>
         <th scope="col">Nombre del Alumno</th>
         <th scope="col">Nombre del Tutor</th>
+        <th scope="col">Concepto</th>
+        <th scope="col">Mes</th>
         <th scope="col">Número de cuenta</th>
         <th style="text-align: center;" scope="col">Importe</th>
         <th style="text-align: center;" scope="col">Opciones</th>
@@ -15,10 +15,10 @@
 {% block rows %}
     {% for c in object_list %}
         <tr>
-            <td>{{ c.Concepto }}</td>
-            <td>{{ c.Mes }}</td>
             <td>{{ c.Alumno }}</td> 
             <td>{{ c.Alumno.Padre }}</td> 
+            <td>{{ c.Concepto }}</td>
+            <td>{{ c.Mes }}</td>
             <td>{{ c.Alumno.Padre.NumeroCuenta }}</td> 
             <td style="text-align: center;">{{ c.Importe }}</td>
             <td style="text-align: right;">
