@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Apps.Login',
     'Apps.Adeudos',
     'Apps.Contabilidad',
+    'django_generate_secret_key',
 ]
 
 MIDDLEWARE = [
